@@ -12,6 +12,8 @@
 #import "TLPlayer.h"
 #import "TLCameraToolView.h"
 
+#import "MainViewController.h"
+
 @interface TLCameraController ()<TLCameraToolViewDelegate,AVCaptureFileOutputRecordingDelegate,UIGestureRecognizerDelegate>
 {
     BOOL _didLayoutSubviews;
@@ -65,10 +67,14 @@
         self.progressColor = kColorRGB(80, 170, 56);
         self.sessionPreset = AVCaptureSessionPreset1280x720;
         self.videoType = @"mp4";
-        _demoView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
-        _demoView.backgroundColor = [UIColor redColor];
-        _demoView.hidden = NO;
-        [self.view addSubview:_demoView];
+//        _demoView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
+//        _demoView.backgroundColor = [UIColor redColor];
+//        _demoView.hidden = NO;
+//        [self.view addSubview:_demoView];
+        MainViewController *vc = [[MainViewController alloc] init];
+        vc.view.frame  = CGRectMake(10, 44, 200, 500);
+        [self.view addSubview:vc.view];
+        
     }
     return self;
 }

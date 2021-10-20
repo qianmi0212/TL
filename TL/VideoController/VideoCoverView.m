@@ -51,7 +51,7 @@
 
 - (void) layoutWithVideoCoverUrl: (NSString *)videoCoverUrl videoUrl:(NSString*)videoUrl {
 	_coverView.image = [UIImage imageNamed:videoCoverUrl];
-	_playButton.image = [UIImage imageNamed:@"icon.bundle/videoPlay.png"];
+//	_playButton.image = [UIImage imageNamed:@"icon.bundle/videoPlay.png"];
 	_videoUrl = videoUrl;
 }
 

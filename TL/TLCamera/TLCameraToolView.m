@@ -29,7 +29,6 @@ static const CGFloat kTLContentPadding = 20.0f;
 
 @property (nonatomic, strong) UIView *pointView;
 @property (nonatomic, strong) UIView *recordView;
-@property (nonatomic, strong) UIView *demoView;
 @property (nonatomic, strong) CAShapeLayer *animationLayer;
 
 @property (nonatomic, assign) CGFloat duration;
@@ -79,12 +78,7 @@ static const CGFloat kTLContentPadding = 20.0f;
         [_doneButton addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _doneButton.hidden = YES;
         
-        _demoView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
-        _demoView.backgroundColor = [UIColor redColor];
-        _demoView.hidden = NO;
-        
         [self tl_addSubviews:@[_tipLabel,_recordView,_pointView,_dismissButton,_cancelButton,_doneButton]];
-        [self.inputView addSubview:_demoView];
     }
     return self;
 }

@@ -19,6 +19,7 @@
     BOOL _accessUnavailable;
 }
 
+@property (nonatomic, strong) UIView *demoView;
 //操作工具视图
 @property (nonatomic, strong) TLCameraToolView *toolView;
 
@@ -64,6 +65,10 @@
         self.progressColor = kColorRGB(80, 170, 56);
         self.sessionPreset = AVCaptureSessionPreset1280x720;
         self.videoType = @"mp4";
+        _demoView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
+        _demoView.backgroundColor = [UIColor redColor];
+        _demoView.hidden = NO;
+        [self.view addSubview:_demoView];
     }
     return self;
 }
@@ -560,6 +565,7 @@
         NSURL *fileURL = [NSURL fileURLWithPath:outputFilePath];
         [self.movieFileOutPut startRecordingToOutputFileURL:fileURL recordingDelegate:self];
     }
+    
 }
 
 - (void)cameraToolViewFinishRecord:(TLCameraToolView *)toolView {

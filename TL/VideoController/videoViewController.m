@@ -9,8 +9,8 @@
 #import "VideoCoverView.h"
 //#import "RecommendViewController.h"
 
-#define kScreenWidth 150
-#define kScreenHeight 200
+#define kScreenWidth 200
+#define kScreenHeight 400
 #define kStatusBarHeight 5
 #define kNavigationBarHeight 10
 #define kTabbarHeight 25
@@ -45,7 +45,7 @@
 //	// 每个cell视频源占满整个屏幕，上下滑动切换cell，因此每滑动两个cell就会进行cell复用
 //	 flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 
-	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabbarHeight) collectionViewLayout:flowLayout];
+	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth, kScreenHeight - 20 -44) collectionViewLayout:flowLayout];
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
 	// 必须先注册 Cell 类型⽤于重用
@@ -69,14 +69,14 @@
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoCoverView" forIndexPath:indexPath];
     if ([cell isKindOfClass:[VideoCoverView class]]) {
         // 视频播放
-        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/cover.png" videoUrl:@"/Users/lichun/Desktop/temp/demo.mp4"];
-        //[((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
+//        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"icon.bundle/ksdemo.mp4"];
+        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
     }
 	return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(kScreenWidth, kScreenHeight-kTabbarHeight);
+    return CGSizeMake(kScreenWidth, 150);
 }
 
 

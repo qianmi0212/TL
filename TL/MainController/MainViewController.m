@@ -9,11 +9,10 @@
 #import "videoViewController.h"
 #import "RecommendViewController.h"
 
-#define kScreenWidth 150
-#define kScreenHeight 200
+#define kScreenWidth 200
+#define kScreenHeight 400
 #define kStatusBarHeight 5
 #define kNavigationBarHeight 10
-#define kTabbarHeight 25
 
 
 @interface MainViewController ()<UIScrollViewDelegate>
@@ -43,7 +42,7 @@
     
     [self.view addSubview:self.mainScrollView];
     //设置画布大小，一般比frame大，这里设置横向能拖动的范围
-    self.mainScrollView.contentSize = CGSizeMake(kScreenWidth * self.childViewControllers.count, kScreenHeight - kTabbarHeight);
+    self.mainScrollView.contentSize = CGSizeMake(kScreenWidth * self.childViewControllers.count, kScreenHeight - 44);
     
     [self.view addSubview:self.slideBGView];
 }
@@ -68,15 +67,15 @@
 }
 
 #pragma mark - UIScrollViewDelegate ScrollView代理
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
-//    [self showViewWithIndex:index];
-//}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger index = scrollView.contentOffset.x / kScreenWidth;
     [self showViewWithIndex:index];
 }
+
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
+//    [self showViewWithIndex:index];
+//}
 
 #pragma mark - 点击按钮
 - (void)clickFunBtn:(UIButton *)btn {
@@ -97,7 +96,7 @@
     
     CGFloat w = kScreenWidth / self.childViewControllers.count;
     [UIView animateWithDuration:0.25 animations:^{
-        self.slideLine.frame = CGRectMake(w * (index + 0.25), 20, 0.5 * w, 2);
+        self.slideLine.frame = CGRectMake(w * (index + 0.25), 44, 0.5 * w, 2);
     }];
     
     self.currentSelectBtn.selected = NO;
@@ -108,13 +107,13 @@
 #pragma mark- getter & setter
 - (UIScrollView *)mainScrollView {
     if (_mainScrollView == nil) {
-        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabbarHeight)];
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, kScreenWidth, kScreenHeight-44)];
         // 适配iOS11--contentInsetAdjustmentBehavior,不计算内边距，不让scrollView偏移
         _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _mainScrollView.delegate = self;
         _mainScrollView.backgroundColor = [UIColor whiteColor];
         _mainScrollView.pagingEnabled = YES;
-        _mainScrollView.showsHorizontalScrollIndicator = NO;
+        _mainScrollView.showsHorizontalScrollIndicator = YES;
         _mainScrollView.showsVerticalScrollIndicator = NO;
     }
     return _mainScrollView;
@@ -123,7 +122,7 @@
 - (UIView *)slideBGView {
     if (_slideBGView == nil) {
         _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
-        _slideBGView.backgroundColor = [UIColor clearColor];
+        _slideBGView.backgroundColor = [UIColor grayColor];
         
         CGFloat w = kScreenWidth / self.childViewControllers.count;
         NSArray *btnTitle  = @[@"模板0", @"模板1", @"模板2"];
@@ -131,7 +130,7 @@
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.frame = CGRectMake(w * i, 0, w, 44);
             btn.tag = i + 1;
-            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [btn setTitle:[btnTitle objectAtIndex:i] forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(clickFunBtn:) forControlEvents:UIControlEventTouchUpInside];

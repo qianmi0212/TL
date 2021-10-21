@@ -67,14 +67,6 @@
         self.progressColor = kColorRGB(80, 170, 56);
         self.sessionPreset = AVCaptureSessionPreset1280x720;
         self.videoType = @"mp4";
-//        _demoView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
-//        _demoView.backgroundColor = [UIColor redColor];
-//        _demoView.hidden = NO;
-//        [self.view addSubview:_demoView];
-        MainViewController *vc = [[MainViewController alloc] init];
-        vc.view.frame  = CGRectMake(10, 44, 200, 500);
-        [self.view addSubview:vc.view];
-        
     }
     return self;
 }
@@ -123,6 +115,12 @@
         [[AVAudioSession sharedInstance] setActive:YES error:nil];
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willResignActive) name:UIApplicationWillResignActiveNotification object:nil];
+    
+    MainViewController *vc = [[MainViewController alloc] init];
+    [self addChildViewController:vc];
+    vc.view.frame  = CGRectMake(0, 100, 200, 400);
+    vc.view.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:vc.view];
 }
 
 - (void)viewDidLayoutSubviews {

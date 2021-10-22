@@ -7,6 +7,8 @@
 
 #import "MainViewController.h"
 #import "videoViewController.h"
+#import "videoViewController1.h"
+#import "videoViewController2.h"
 #import "RecommendViewController.h"
 
 #define kScreenWidth 200
@@ -48,9 +50,9 @@
 - (void)setupChildViewControllers {
     videoViewController *vc1 = [[videoViewController alloc]init];
     [self addChildViewController:vc1];
-    videoViewController *vc2 = [[videoViewController alloc] init];
+    videoViewController1 *vc2 = [[videoViewController1 alloc] init];
     [self addChildViewController:vc2];
-    videoViewController *vc3 = [[videoViewController alloc]init];
+    videoViewController2 *vc3 = [[videoViewController2 alloc]init];
     [self addChildViewController:vc3];
 }
 

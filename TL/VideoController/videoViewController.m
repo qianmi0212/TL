@@ -42,7 +42,7 @@
 //	// 每个cell视频源占满整个屏幕，上下滑动切换cell，因此每滑动两个cell就会进行cell复用
 //	 flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 
-	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth, kScreenHeight - 20 -44) collectionViewLayout:flowLayout];
+	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, kScreenHeight ) collectionViewLayout:flowLayout];
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
 	// 必须先注册 Cell 类型⽤于重用

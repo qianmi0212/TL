@@ -31,9 +31,10 @@
 
 - (void) playVideoWithUrl: (NSString *)videoUrl attachView:(UIView *) attachView {
     [self _stopPlay];
+    NSString *urlStr = [[NSBundle mainBundle] pathForResource:videoUrl ofType:nil];
     
     // 播放本地视频
-    NSURL *videoURL = [NSURL fileURLWithPath:videoUrl];
+    NSURL *videoURL = [NSURL fileURLWithPath:urlStr];
     
     // NSURL *videoURL = [NSURL URLWithString:videoUrl];
 	AVAsset *asset = [AVAsset assetWithURL:videoURL];

@@ -118,7 +118,7 @@
     
     MainViewController *vc = [[MainViewController alloc] init];
     [self addChildViewController:vc];
-    vc.view.frame  = CGRectMake(0, 100, 200, 400);
+    vc.view.frame  = CGRectMake(0, 100, 200, 300);
     vc.view.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:vc.view];
 }

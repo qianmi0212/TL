@@ -10,7 +10,7 @@
 #import "RecommendViewController.h"
 
 #define kScreenWidth 200
-#define kScreenHeight 400
+#define kScreenHeight 300
 
 @interface MainViewController ()<UIScrollViewDelegate>
 
@@ -35,7 +35,7 @@
 
 #pragma mark - 初始化页面
 - (void)setupView {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor grayColor];
     
     [self.view addSubview:self.mainScrollView];
     //设置画布大小，一般比frame大，这里设置横向能拖动的范围
@@ -104,7 +104,7 @@
 #pragma mark- getter & setter
 - (UIScrollView *)mainScrollView {
     if (_mainScrollView == nil) {
-        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, kScreenWidth, kScreenHeight-44)];
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         // 适配iOS11--contentInsetAdjustmentBehavior,不计算内边距，不让scrollView偏移
         _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _mainScrollView.delegate = self;

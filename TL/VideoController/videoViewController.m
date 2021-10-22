@@ -10,7 +10,7 @@
 //#import "RecommendViewController.h"
 
 #define kScreenWidth 200
-#define kScreenHeight 400
+#define kScreenHeight 300
 
 @interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -57,7 +57,7 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return 2;
+	return 1;
 }
 
 
@@ -66,14 +66,14 @@
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoCoverView" forIndexPath:indexPath];
     if ([cell isKindOfClass:[VideoCoverView class]]) {
         // 视频播放
-//        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"icon.bundle/ksdemo.mp4"];
-        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
+        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/demo.png" videoUrl:@"icon.bundle/trunk200_300.mp4"];
+       //[((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
     }
 	return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(kScreenWidth, 150);
+    return CGSizeMake(kScreenWidth, 200);
 }
 
 

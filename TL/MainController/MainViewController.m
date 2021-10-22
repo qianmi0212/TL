@@ -11,9 +11,6 @@
 
 #define kScreenWidth 200
 #define kScreenHeight 400
-#define kStatusBarHeight 5
-#define kNavigationBarHeight 10
-
 
 @interface MainViewController ()<UIScrollViewDelegate>
 

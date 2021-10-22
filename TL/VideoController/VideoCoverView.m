@@ -29,7 +29,7 @@
 		// 按钮加入coverView，点击播放后按扭消失
 		[_coverView addSubview:({
 			// 按钮居中
-			_playButton = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 50) / 2, (frame.size.height - 50) / 2, 50, 50)];
+			_playButton = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 50) / 2, (frame.size.height - 50) / 2, 20, 20)];
 			_playButton;
 		})];
         
@@ -51,7 +51,7 @@
 
 - (void) layoutWithVideoCoverUrl: (NSString *)videoCoverUrl videoUrl:(NSString*)videoUrl {
 	_coverView.image = [UIImage imageNamed:videoCoverUrl];
-//	_playButton.image = [UIImage imageNamed:@"icon.bundle/videoPlay.png"];
+//    _playButton.image = [UIImage imageNamed:@"icon.bundle/videoPlay.png"];
 	_videoUrl = videoUrl;
 }
 

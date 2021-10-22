@@ -11,9 +11,6 @@
 
 #define kScreenWidth 200
 #define kScreenHeight 400
-#define kStatusBarHeight 5
-#define kNavigationBarHeight 10
-#define kTabbarHeight 25
 
 @interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -60,7 +57,7 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return 30;
+	return 2;
 }
 
 

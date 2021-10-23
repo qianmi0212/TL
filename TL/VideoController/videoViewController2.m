@@ -66,7 +66,7 @@
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoCoverView" forIndexPath:indexPath];
     if ([cell isKindOfClass:[VideoCoverView class]]) {
         // 视频播放
-        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/demo.png" videoUrl:@"icon.bundle/rotate200_300.mp4"];
+        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/2.png" videoUrl:@"icon.bundle/cross_200_300.mp4"];
        //[((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
     }
 	return cell;
